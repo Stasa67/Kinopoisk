@@ -1,28 +1,57 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderComponent />
+    <BigAd />
+    <MainMenu 
+      v-bind:menus="menus"
+    />
+    <FocusComponent 
+      v-bind:focuses="focuses"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+ import HeaderComponent from './components/header.vue'
+ import BigAd from './components/BigAd.vue'
+ import MainMenu from './components/MainMenu.vue'
+ import FocusComponent from './components/Focus.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderComponent,
+    BigAd,
+    MainMenu,
+    FocusComponent
+  },
+  data() {
+    return {
+      menus: [
+        { title: "Главная"},
+        { title: "Онлайн-кинотеатры"},
+        { title: "Фильмы"},
+        { title: "Сериалы"},
+        { title: "Телеканалы"},
+        { title: "Спорт"},
+        { title: "Игры"},
+        { title: "Билеты в кино"},
+        { title: "Медиа"}
+      ],
+      // focuses: [
+      //   {src: ./assets/Vensday.jpg}
+      // ]
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  
+}
+body {
+  margin: 0;
 }
 </style>
